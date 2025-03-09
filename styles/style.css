@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+
+
+
+
+:root{
+    --cube-width: 290px;
+    --translateZ: 150px;
+
+    --Border-Set:2px solid;
+}
+
+
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: black;
+}
+
+header{
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-around;
+}
+
+
+
+header h1{
+    user-select: none;
+    margin: 0;
+    font-size: 100px;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+
+}
+
+header .sub-heading{
+    user-select: none;
+    font-size: 24px;
+    margin: 0;
+}
+
+.face{
+    width: var(--cube-width);
+    height: var(--cube-width);
+    position: absolute;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+    transition: 1s;
+}
+#cube-container{
+    perspective: 1000px;
+}
+
+#cube{
+    width: var(--cube-width);
+    height: var(--cube-width);
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+#cube:hover .face{
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px 10px white;
+    border: 10px solid rgba(0, 0, 0, 0);
+}
+
+
+#front{
+    border: var(--Border-Set) red;
+    transform: translateZ(var(--translateZ));
+}
+
+#back{
+    border: var(--Border-Set) darkblue;
+    transform: rotateY(180deg) translateZ(var(--translateZ));
+}
+
+#top{
+    border: var(--Border-Set) green;
+    transform: rotateX(90deg) translateZ(var(--translateZ));
+}
+
+#bottom{
+    border: var(--Border-Set) purple;
+    transform: rotateX(-90deg) translateZ(var(--translateZ));
+}
+
+
+#left{
+    border: var(--Border-Set) orange;
+    transform: rotateY(-90deg) translateZ(var(--translateZ));
+
+}
+
+#right{
+    border: var(--Border-Set) pink;
+    transform: rotateY(90deg) translateZ(var(--translateZ));
+}
+
+
+
+
+
+
+
+
+#ToolArrow{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+    font-size: 40px;
+    transition: 1s;
+}
+
+#ToolArrow i {
+    transition: transform 1s ease-in-out;
+}
+
+.Inner-cursor{
+    position: fixed;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    background: white;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: width 0.5s height 0.5s;
+}
+
+
+.Outer-cursor{
+    position: fixed;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    border: 1px solid white;
+    background: rgb(255, 255, 255);
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    pointer-events: 0.1ms;
+    transition: 0.05s;
+}
